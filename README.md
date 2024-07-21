@@ -44,6 +44,29 @@ int main() {
 
 ## Installation
 
+As LeetSouls is not currently available on the Chrome Web Store, you'll need to install it manually as an unpacked extension. Follow these steps:
+
+1. Download the extension:
+   - Go to the [LeetSouls GitHub repository](https://github.com/your-username/leetsouls)
+   - Click on the "Code" button and select "Download ZIP"
+   - Extract the downloaded ZIP file to a location on your computer
+
+2. Open Google Chrome and navigate to `chrome://extensions/`
+
+3. Enable "Developer mode" by toggling the switch in the top right corner
+
+4. Click on "Load unpacked" button that appears after enabling Developer mode
+
+5. Navigate to the folder where you extracted the LeetSouls files and select it
+
+6. The LeetSouls extension should now appear in your list of installed extensions
+
+7. Pin the extension to your Chrome toolbar for easy access during LeetCode contests
+
+Note: As this is a developer mode installation, you may see a reminder about running extensions in developer mode when you start Chrome. This is normal for manually installed extensions.
+
+Remember to keep the extracted folder intact, as removing it will disable the extension.
+
 ## Usage
 
 - Navigate to a LeetCode contest problem.
