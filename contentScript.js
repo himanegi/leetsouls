@@ -180,6 +180,64 @@ function copyToClipboard(text) {
   }
 }
 
+function getQuirkyMessage() {
+  const messages = [
+    "LeetCode challenge extracted, Tarnished. Rise and code! 💻🌟",
+    "Problem copied. Prepare to compile... repeatedly. ☠️🔄",
+    "Challenge ahead, therefore time for coding! 🗡️⌨️",
+    "Hesitation is defeat. Paste the code and face your runtime fears! ⏱️😱",
+    "Amazing code ahead, and then praise the algorithm! 🙌🧠",
+    "Don't give up, skeleton! Your IDE awaits! 💀💻",
+    "Problem transported to clipboard. The night of the code hunt begins... 🌙🐺",
+    "Challenge copied. May the good code guide your way! 🕯️🛤️",
+    "Hidden code ahead. Time to git gud! 🕵️‍♂️🎮",
+    "Behold, LeetCode! Time for strategic coding and then victory! 🏆🔍",
+    "Visions of efficient algorithm... Now the real fight begins! 👁️⚔️",
+    "Problem acquired, Ashen One. Link the code to appease the LeetCode Lords! 🔥👑",
+    "Challenge beckons, Good Hunter. A programmer must code! 🩸🖋️",
+  ];
+  return messages[Math.floor(Math.random() * messages.length)];
+}
+
+function showNotification(message) {
+  const notification = document.createElement("div");
+  notification.style.position = "fixed";
+  notification.style.bottom = "0px";
+  notification.style.left = "50%";
+  notification.style.transform = "translateX(-50%) translateY(100%)";
+  notification.style.backgroundColor = "#1A1A1A";
+  notification.style.color = "#ffffff";
+  notification.style.padding = "8px 16px";
+  notification.style.borderRadius = "20px";
+  notification.style.zIndex = "9999";
+  notification.style.fontFamily = "Arial, sans-serif";
+  notification.style.fontSize = "14px";
+  notification.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.5)";
+  notification.style.display = "flex";
+  notification.style.alignItems = "center";
+  notification.style.opacity = "0";
+  notification.style.transition = "opacity 0.5s, transform 0.5s";
+  notification.innerHTML = `${message}`;
+
+  document.body.appendChild(notification);
+
+  // Fade in
+  setTimeout(() => {
+    notification.style.opacity = "1";
+    notification.style.transform = "translateX(-50%) translateY(0)";
+    notification.style.bottom = "50px";
+  }, 50);
+
+  // Fade out
+  setTimeout(() => {
+    notification.style.opacity = "0";
+    notification.style.transform = "translateX(-50%) translateY(100%)";
+    setTimeout(() => {
+      document.body.removeChild(notification);
+    }, 500);
+  }, 2500);
+}
+
 function run() {
   let data = "";
 
