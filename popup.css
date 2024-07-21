@@ -7,6 +7,10 @@ body, html {
     color: #d4af37;
 }
 
+p{
+    font-size:18px;
+}
+
 .container {
     width: 350px;
     padding: 20px;
@@ -149,22 +153,14 @@ body, html {
 }
 
 .qr-code {
-    width: 200px;
-    height: 200px;
-    margin-bottom: 10px;
+    width: 150px;
+    height: 150px;
 }
 
 .close-btn {
-    background-color: #d4af37;
-    color: #0a0a0a;
-    border: none;
-    padding: 10px 20px;
-    font-family: 'Cinzel', serif;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    margin: 10px auto 0;
 }
 
-.close-btn:hover {
-    background-color: #a08e54;
+.close-btn i {
+    font-size: 20px;
 }

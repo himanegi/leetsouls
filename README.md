@@ -15,6 +15,16 @@ LeetSouls is a browser extension that extracts code from LeetCode contest proble
 - Automatically copies the generated code to your clipboard
 - Includes sample test cases in the main function for quick testing
 
+## Screenshots
+
+![Extract Problem Code](images/screen1.png)
+*LeetSouls button on a LeetCode contest page*
+
+![Notification](images/screen2.png)
+*Notification popup after successful code extraction*
+
+These screenshots demonstrate the LeetSouls extension in action. The first image shows the LeetSouls button integrated into the LeetCode contest interface, ready for use. The second image displays the unique, Dark Souls-themed notification that appears after the code has been successfully extracted and copied to your clipboard.
+
 ## Template Structure
 
 The generated C++ template follows this structure:
