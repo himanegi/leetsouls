@@ -118,6 +118,41 @@ function parse_input(input_string) {
   return data;
 }
 
+function isInt(n) {
+  return Number(n) === n && n % 1 === 0;
+}
+
+function isFloat(n) {
+  return Number(n) === n && n % 1 !== 0;
+}
+function isBool(n) {
+  return typeof n == "boolean";
+}
+function isStr(n) {
+  return typeof n == "string";
+}
+function isList(a) {
+  return Array.isArray(a);
+}
+function getDatatype(data) {
+  if (isInt(data)) {
+    return "int";
+  } else if (isFloat(data)) {
+    return "float";
+  } else if (isBool(data)) {
+    return "bool";
+  } else if (isStr(data)) {
+    return "string";
+  } else if (isList(data)) {
+    var temp = getDatatype(data[0]);
+    temp = `vector<${temp}>`;
+    return temp;
+  } else {
+    console.log("Unknown Datatype : " + data);
+    return "None";
+  }
+}
+
 function jsontocpp(data, index) {
   var res = "";
   for (let i = 0; i < data.length; i++) {
@@ -134,6 +169,22 @@ function jsontocpp(data, index) {
     res += `${datatype} ${varname}${index} = ${vardata};`;
     res += "\n\t";
   }
+  return res;
+}
+
+function jsontocpp2(data, index) {
+  var res = "";
+
+  var varname = "output_";
+  var datatype = getDatatype(JSON.parse(data));
+  var vardata = data;
+  vardata = vardata.replaceAll("[", "{");
+  vardata = vardata.replaceAll("]", "}");
+  vardata = vardata.replaceAll("False", "false");
+  vardata = vardata.replaceAll("True", "true");
+  res += `${datatype} ${varname}${index} = ${vardata};`;
+  res += "\n\t";
+
   return res;
 }
 
