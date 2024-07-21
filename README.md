@@ -73,3 +73,5 @@ Remember to keep the extracted folder intact, as removing it will disable the ex
 - Click the LeetSouls copy button that appears on the top-right corner.
 - The extracted code template is now in your clipboard, ready to be pasted into your preferred IDE.
 - Look out for a quirky, Dark Souls-inspired notification confirming successful extraction.
+
+Note: This extension is designed to work only with LeetCode's classic editor mode. It may not function correctly if you're using the new dynamic editor mode, as LeetCode has removed access to the page source in this mode.
