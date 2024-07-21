@@ -45,6 +45,79 @@ function getFuncName(data) {
   }
 }
 
+function getSamples(data) {
+  var doc = new DOMParser().parseFromString(data, "text/html");
+  var exampleBlocks = doc.querySelectorAll("div.example-block");
+  var samples = [];
+
+  exampleBlocks.forEach((block) => {
+    let inputText = getText(block, "Input:");
+    let outputText = getText(block, "Output:");
+
+    if (inputText && outputText) {
+      let input = parse_input(inputText);
+      samples.push({ input, output: outputText });
+    }
+  });
+
+  // For debugging
+  console.log("Samples:", samples);
+
+  return samples;
+}
+
+function getText(block, label) {
+  let regex = new RegExp(label, "i");
+  let pElements = block.getElementsByTagName("p");
+
+  for (let p of pElements) {
+    if (regex.test(p.innerHTML)) {
+      let text = [];
+      let sibling = p.firstChild;
+      let capture = false;
+
+      while (sibling) {
+        if (capture) {
+          if (sibling.nodeType === Node.TEXT_NODE) {
+            text.push(sibling.textContent.trim());
+          } else if (sibling.nodeType === Node.ELEMENT_NODE) {
+            text.push(sibling.textContent.trim());
+          }
+        }
+
+        if (
+          sibling.nodeType === Node.TEXT_NODE &&
+          regex.test(sibling.textContent)
+        ) {
+          capture = true;
+        } else if (
+          sibling.nodeType === Node.ELEMENT_NODE &&
+          regex.test(sibling.innerHTML)
+        ) {
+          capture = true;
+        }
+
+        sibling = sibling.nextSibling;
+      }
+
+      return text.join(" ").trim();
+    }
+  }
+  return null;
+}
+
+function parse_input(input_string) {
+  input_string = input_string.split(", ");
+  var data = [];
+  for (let i = 0; i < input_string.length; i++) {
+    var varname = input_string[i].split("=")[0].trim();
+    var vardata = input_string[i].split("=")[1].trim();
+    data.push([varname, vardata]);
+  }
+  console.log("data : ", data);
+  return data;
+}
+
 function run() {
   let data = "";
 
@@ -53,4 +126,6 @@ function run() {
   var codeSlug = getCodeSlug(data);
 
   var funcname = getFuncName(data);
+
+  var samples = getSamples(data);
 }
