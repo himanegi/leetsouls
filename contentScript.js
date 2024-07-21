@@ -118,6 +118,41 @@ function parse_input(input_string) {
   return data;
 }
 
+function copyToClipboard(text) {
+  if (navigator.clipboard && window.isSecureContext) {
+    // Navigator Clipboard API method
+    return navigator.clipboard
+      .writeText(text)
+      .then(() => {
+        showNotification("✅ " + getQuirkyMessage());
+      })
+      .catch((err) => {
+        console.error("Failed to copy text: ", err);
+        showNotification("Failed to copy", "See console for details");
+      });
+  } else {
+    // Fallback method
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    textArea.style.position = "fixed";
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    try {
+      const success = document.execCommand("copy");
+      if (success) {
+        showNotification("✅ " + getQuirkyMessage());
+      } else {
+        showNotification("Failed to copy", "See console for details");
+      }
+    } catch (err) {
+      console.error("Fallback: Oops, unable to copy", err);
+      showNotification("Failed to copy", "See console for details");
+    }
+    document.body.removeChild(textArea);
+  }
+}
+
 function run() {
   let data = "";
 
@@ -128,4 +163,6 @@ function run() {
   var funcname = getFuncName(data);
 
   var samples = getSamples(data);
+
+  copyToClipboard(tmp);
 }
