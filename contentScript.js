@@ -118,6 +118,25 @@ function parse_input(input_string) {
   return data;
 }
 
+function jsontocpp(data, index) {
+  var res = "";
+  for (let i = 0; i < data.length; i++) {
+    var varname = data[i][0];
+    console.log("varname : ", varname);
+    //Console Inputs and Outputs
+    console.log("data : ", data[i][1]);
+    var datatype = getDatatype(JSON.parse(data[i][1]));
+    var vardata = data[i][1];
+    vardata = vardata.replaceAll("[", "{");
+    vardata = vardata.replaceAll("]", "}");
+    vardata = vardata.replaceAll("False", "false");
+    vardata = vardata.replaceAll("True", "true");
+    res += `${datatype} ${varname}${index} = ${vardata};`;
+    res += "\n\t";
+  }
+  return res;
+}
+
 function getSampleVariables(data, index) {
   var res = [];
   for (let i = 0; i < data.length; i++) {
@@ -134,6 +153,9 @@ function generateChecker(samples, funcname) {
     inputs.push(samples[i].input);
     outputs.push(samples[i].output);
   }
+  //Debugging
+  console.log("inputs : ", inputs);
+  console.log("outputs : ", outputs);
   var res = "";
   for (let i = 0; i < inputs.length; i++) {
     var x = inputs[i];
