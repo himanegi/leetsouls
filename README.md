@@ -37,6 +37,6 @@ int main() {
 ## Usage
 
 - Navigate to a LeetCode contest problem.
-- Click the LeetSouls extension icon.
-- The code will be automatically extracted, converted, and copied to your clipboard.
-- Paste the code into your preferred IDE or text editor.
+- Click the LeetSouls copy button that appears on the top-right corner.
+- The extracted code template is now in your clipboard, ready to be pasted into your preferred IDE.
+- Look out for a quirky, Dark Souls-inspired notification confirming successful extraction.
