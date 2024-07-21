@@ -1,0 +1,170 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Cinzel', serif;
+    background-color: #0a0a0a;
+    color: #d4af37;
+}
+
+.container {
+    width: 350px;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+.logo {
+    display: block;
+    width: 200px;
+    height: auto;
+    margin: 0 auto 20px;
+}
+
+.title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.description {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #a08e54;
+}
+
+.links {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.link {
+    color: #d4af37;
+    text-decoration: none;
+    font-size: 24px;
+    width: 60px;
+    height: 60px;
+    margin: 10px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    background: #0a0a0a;
+    border: 2px solid #d4af37;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.link::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: #d4af37;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.link:hover::before {
+    opacity: 1;
+}
+
+.link:hover {
+    color: #0a0a0a;
+    transform: scale(1.05) rotate(360deg);
+}
+
+.link i {
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.link:hover i {
+    transform: scale(1.1);
+}
+
+.rune-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    border: 2px solid #d4af37;
+    border-radius: 50%;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+.rune-circle::before, .rune-circle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid #d4af37;
+    border-radius: 50%;
+}
+
+.rune-circle::before {
+    width: 280px;
+    height: 280px;
+}
+
+.rune-circle::after {
+    width: 260px;
+    height: 260px;
+}
+
+.qr-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+}
+
+.qr-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid #d4af37;
+}
+
+.qr-code {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 10px;
+}
+
+.close-btn {
+    background-color: #d4af37;
+    color: #0a0a0a;
+    border: none;
+    padding: 10px 20px;
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+    background-color: #a08e54;
+}

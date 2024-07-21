@@ -1,13 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>LeetSouls: Code Extractor</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeetSouls: Code Extractor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="popup.css">
 </head>
 <body>
-  <h1>LeetSouls: Code Extractor</h1>
-  <button id="extractButton">Extract Code</button>
-  <div id="status"></div>
-  <script src="popup.js"></script>
+    <div class="container">
+        <!-- <img src="logo.png" alt="LeetSouls Logo" class="logo"> -->
+        <h1 class="title">LeetSouls: Code Extractor</h1>
+        <p class="description">Brave Tarnished, seek the LeetCode contest to use this extension.</p>
+        <div class="links">
+            <a href="https://www.linkedin.com/your-profile" target="_blank" class="link" title="LinkedIn Dungeon">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/your-username" target="_blank" class="link" title="GitHub Realm">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="#" class="link" id="supportButton" title="Offer Runes">
+                <i class="fas fa-coins"></i>
+            </a>
+        </div>
+        <div class="qr-modal" id="qrModal">
+            <div class="qr-content">
+                <img src="qr-code.png" alt="Support QR Code" class="qr-code">
+                <p>Scan to offer Runes</p>
+                <button class="close-btn" id="closeModal">Close</button>
+            </div>
+        </div>
+        <div class="rune-circle"></div>
+    </div>
+    <script src="popup.js"></script>
 </body>
 </html>
