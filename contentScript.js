@@ -13,6 +13,11 @@ function getCodeSlug(data) {
 
   let cpp = data.slice(startIdx, endIdx);
 
+  // Decode Unicode escape sequences
+  cpp = cpp.replace(/\\u[\dA-F]{4}/gi, (match) =>
+    String.fromCharCode(parseInt(match.replace(/\\u/g, ""), 16))
+  );
+
   return cpp;
 }
 
