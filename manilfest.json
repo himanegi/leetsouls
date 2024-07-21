@@ -1,0 +1,27 @@
+{
+    "manifest_version": 3,
+    "name": "LeetSouls",
+    "version": "1.0",
+    "description": "Copies the code of the LeetCode contest problems to test them locally.",
+    "icons": {
+      "16": "ico.png",
+      "48": "ico.png",
+      "128": "ico.png"
+    },
+    "permissions": [
+      "activeTab",
+      "scripting",
+      "tabs"
+    ],
+    "host_permissions": [
+      "https://leetcode.com/contest/*"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_title": "LeetSouls",
+      "default_icon": "ico.png",
+      "default_popup": "popup.html"
+    }
+  }
