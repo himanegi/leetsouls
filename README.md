@@ -1,6 +1,12 @@
 # LeetSouls: Code Extractor
 
-LeetSouls is a browser extension that extracts code from LeetCode contest problems and converts it into an editable C++ template, ready for use in your preferred IDE.
+LeetSouls is a browser extension that extracts code from LeetCode contest problems and converts it into an editable C++ template, ready for use in your preferred IDE. Perfect for LeetCode enthusiasts looking to optimize their contest workflow and focus more on problem-solving rather than setup.
+
+## Tech Stack
+
+- JavaScript
+- Chrome Extension APIs
+- DOM Manipulation
 
 ## Features
 
