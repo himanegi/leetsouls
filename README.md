@@ -17,9 +17,6 @@ LeetSouls is a browser extension that extracts code from LeetCode contest proble
 
 ## Screenshots
 
-![ExpenseEase Demo](./images/demo.gif)
-*Demo*
-
 ![Extract Problem Code](images/screen1.png)
 *LeetSouls button on a LeetCode contest page*
 
